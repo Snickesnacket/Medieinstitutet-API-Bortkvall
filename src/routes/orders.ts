@@ -3,7 +3,7 @@
  */
 import express from 'express'
 import { index, show, store, } from '../controllers/order_controller'
-import { validateOrderRequest } from '../Validations'
+
 import orders from './orders'
 
 
