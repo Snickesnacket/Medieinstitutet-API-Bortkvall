@@ -1,7 +1,7 @@
 import express from "express"
 import productsRouter from './products'
 import orderRouter from './orders'
-import { validateOrder } from '../Validations'
+import { validateOrder, validateProduct } from '../Validations'
 
 // instantiate a new router
 const router = express.Router()
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 /**
  * [EXAMPLE] /resource
  */
-router.use('/products', productsRouter)
+router.use('/products', validateProduct, productsRouter)
 
 
 router.use('/orders', validateOrder, orderRouter)
