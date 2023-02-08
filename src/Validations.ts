@@ -27,7 +27,7 @@ export const validateOrder = [
         .isInt({ min: 1 }).withMessage('Order total must be a positive integer'),
 
 
-    check('order_items.*.product_id').isInt(),
+    check('order_items.*.product_id').isInt({ min: 1 }).withMessage('Product not valid'),
     check('order_items.*.qty').isInt({ min: 1 }).withMessage('Quantity must be a positive number'),
     check('order_items.*.item_price').isInt({ min: 1 }).withMessage('Item price must be a positive number'),
     check('order_items.*.item_total').isInt({ min: 1 }).withMessage('Item total must be a positive number')
@@ -36,7 +36,7 @@ export const validateOrder = [
 
 export const validateProduct = [
 
-    check("id").isInt(),
+    check('id').isInt(),
     check('name').isString(),
     check('description').isString(),
     check('price').isInt().isLength({ min: 1 }),
