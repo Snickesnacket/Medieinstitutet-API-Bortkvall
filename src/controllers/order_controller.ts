@@ -63,9 +63,7 @@ export const show = async (req: Request, res: Response) => {
  * Create a resource
  */
 export const store = async (req: Request, res: Response) => {
-    console.log("req.body.order_items", req.body.order_items)
-    const { id, customer_address, customer_phone, customer_city, customer_email, customer_first_name, customer_last_name, customer_postcode, order_items, order_total, orderId } = req.body
-    console.log('orderId', id)
+    const { customer_address, customer_phone, customer_city, customer_email, customer_first_name, customer_last_name, customer_postcode, order_items, order_total, } = req.body
 
     const validationErrors = validationResult(req)
     if (!validationErrors.isEmpty()) {

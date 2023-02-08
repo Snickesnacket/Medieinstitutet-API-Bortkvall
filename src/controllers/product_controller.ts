@@ -61,6 +61,8 @@ export const show = async (req: Request, res: Response) => {
  */
 export const store = async (req: Request, res: Response) => {
 
+    const { id, name, description, price, images, stock_status, stock_quantity } = req.body
+
     const validationErrors = validationResult(req)
     if (!validationErrors.isEmpty()) {
         return res.status(400).send({
@@ -71,13 +73,13 @@ export const store = async (req: Request, res: Response) => {
     try {
         const product = await prisma.product.create({
             data: {
-                id: req.body.id,
-                name: req.body.name,
-                description: req.body.description,
-                price: req.body.price,
-                images: req.body.images,
-                stock_status: req.body.stock_status,
-                stock_quantity: req.body.stock_quantity
+                id,
+                name,
+                description,
+                price,
+                images,
+                stock_status,
+                stock_quantity
             }
         })
         res.status(201).send({
