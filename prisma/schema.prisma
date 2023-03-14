@@ -8,7 +8,7 @@ datasource db {
 }
 
 model Product {
-  id             Int         @id @db.UnsignedInt
+  id             Int       @id @default(autoincrement()) @db.UnsignedInt
   name           String
   description    String      @db.Text
   price          Int         @db.UnsignedInt

@@ -36,7 +36,7 @@ export const validateOrder = [
 
 export const validateProduct = [
 
-    check('id').isInt(),
+    //check('id')?.isInt(),
     check('name').isString(),
     check('description').isString(),
     check('price').isInt().isLength({ min: 1 }),
