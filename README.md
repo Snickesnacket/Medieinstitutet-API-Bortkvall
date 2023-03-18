@@ -7,7 +7,7 @@ Varje student jobbar enskilt med att skapa en backend för Bortakväll som ska f
  -Godkänt
 
 
-Hygienkrav
+#Hygienkrav
 Nedan hygienkrav ska vara uppfyllda oavsett betygsnivå.
 
 Använder Express och Prisma
@@ -23,10 +23,10 @@ Alla svar följer jSend-specifikationen
 Publicerad (plattform TBD)
 
 
-Kravspecifikation
+#Kravspecifikation
 Ni ska som sagt göra ert första enkla API som ska följa specifikation för Bortakväll (JS1 uppgift 2). Målet är att ni ska kunna testa ert API mot er frontend, utan att behöva ändra något annat än bas-URL till API:et.
 
-Man ska kunna:
+#Man ska kunna:
 
 Hämta alla produkter
 Hämta en enskild produkt
@@ -91,7 +91,6 @@ updated_at
 
 En Order har flera OrderItems.
 
- 
 
 #OrderItems
 product_id (integer, min 1)
