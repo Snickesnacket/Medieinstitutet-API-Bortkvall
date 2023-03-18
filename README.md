@@ -2,11 +2,32 @@
 
 # https://kind-jeans-calf.cyclic.app  
 
+# Endpoints
+# GET /products
+Returnerar alla produkter 
+
+# GET /products/:productId
+Returnerar en enskild produkt.
+
+# POST /products
+Skapar en ny produkt.
+Returnerar den skapade produkten.
+
+# GET /orders
+Returnerar alla ordrar (OrderItems exkluderat).
+
+# GET /orders/:orderId
+Returnerar en enskild order, inkl. dess OrderItems.
+
+# POST /orders
+Skapar en ny order.
+Returnerar den skapade ordern.
+
+
 # Om uppgiften 
 Varje student jobbar enskilt med att skapa en backend för Bortakväll som ska fungera som en ren “drop-in replacement”. 
 
-#Betygskriterier
- -Godkänt
+# Man kan bara få godkänt på uppgiften!
 
 
 # Hygienkrav
