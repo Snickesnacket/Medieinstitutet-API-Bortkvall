@@ -1,19 +1,15 @@
-/**
- * Controller Template
- */
-import Debug from 'debug'
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
 import prisma from '../prisma'
-// Create a new debug instance
-const debug = Debug('prisma-boilerplate:order_controller')
 
-/**
- * Get all orders
- */
 export const index = async (req: Request, res: Response) => {
+
     try {
-        const orders = await prisma.order.findMany()
+        const orders = await prisma.order.findMany({
+             include: {
+                order_items: true
+            }
+        })
 
         res.send({
             status: "success",
@@ -21,19 +17,15 @@ export const index = async (req: Request, res: Response) => {
         })
 
     } catch (err) {
-        debug("Error thrown when making order", err)
         res.status(500).send({ status: "error", message: "Something went wrong" })
     }
 }
 
-/**
- * Get a single resource
- */
 export const show = async (req: Request, res: Response) => {
     const orderId = Number(req.params.ordersId)
 
     if (isNaN(orderId)) {
-        return res.status(400).send({ status: "error", message: "Invalid order ID" })
+        return res.status(400).send({ status: "fail", data: "Invalid order ID" })
     }
 
     try {
@@ -53,19 +45,16 @@ export const show = async (req: Request, res: Response) => {
         })
 
     } catch (err) {
-        debug("Error thrown when finding order with id %o: %o", req.params.orderId, err)
-        return res.status(404).send({ status: "error", message: "Not found" })
+        return res.status(500).send({ status: "error", message: "Not found" })
     }
 }
 
-
-/**
- * Create a resource
- */
 export const store = async (req: Request, res: Response) => {
+
     const { customer_address, customer_phone, customer_city, customer_email, customer_first_name, customer_last_name, customer_postcode, order_items, order_total, } = req.body
 
     const validationErrors = validationResult(req)
+
     if (!validationErrors.isEmpty()) {
         return res.status(400).send({
             status: "fail",
@@ -93,14 +82,13 @@ export const store = async (req: Request, res: Response) => {
                 order_items: true
             }
         })
+
         res.status(201).send({
             status: "success",
             data: order,
         })
+
     } catch (err) {
-        debug("Error thrown when posting products", err)
         res.status(500).send({ status: "error", message: "Something went wrong" })
     }
 }
-
-

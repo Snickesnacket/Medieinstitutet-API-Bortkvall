@@ -8,11 +8,11 @@ datasource db {
 }
 
 model Product {
-  id             Int       @id @default(autoincrement()) @db.UnsignedInt
+  id             Int         @id @default(autoincrement()) @db.UnsignedInt
   name           String
   description    String      @db.Text
   price          Int         @db.UnsignedInt
-  images         Json        @default("{}")
+  images         Json
   stock_status   String
   stock_quantity Int         @db.UnsignedInt
   order_items    OrderItem[]
@@ -36,10 +36,10 @@ model OrderItem {
   qty        Int      @db.UnsignedInt
   item_price Int      @db.UnsignedInt
   item_total Int      @db.UnsignedInt
-  order      Order?   @relation(fields: [order_id], references: [id])
   order_id   Int?     @db.UnsignedInt
-  product    Product? @relation(fields: [product_id], references: [id])
   product_id Int?     @db.UnsignedInt
+  order      Order?   @relation(fields: [order_id], references: [id])
+  product    Product? @relation(fields: [product_id], references: [id])
 
   @@index([order_id], map: "OrderItem_order_id_fkey")
   @@index([product_id], map: "OrderItem_product_id_fkey")
