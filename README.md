@@ -1,4 +1,4 @@
-# Medieinstitutet_API_Bortakvall
+# Medieinstitutet-API-Bortakvall
 
 ## Betyg: G
 
