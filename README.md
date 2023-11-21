@@ -1,28 +1,24 @@
-# API-1
+# Medieinstitutet_API_Bortakvall
 
-# https://kind-jeans-calf.cyclic.app  
+## Betyg: G
 
-# Endpoints
-# GET /products
-Returnerar alla produkter 
+## Express, Prisma, Typescript, CRUD, MySQL
 
-# GET /products/:productId
-Returnerar en enskild produkt.
+Ladda ner och: 
+1. Kör `npm install`
+2. Kopiera `.env.example` till `.env` 
+3. Ladda ner och installera mamp och ställ in till MySQL
+4. Kör `npm install -g env-cmd`
+5. Kör `npx prisma migrate dev` 
+6. Kör `npm run build` 
+7. Kör `npm run start` 
 
-# POST /products
-Skapar en ny produkt.
-Returnerar den skapade produkten.
 
-# GET /orders
-Returnerar alla ordrar (OrderItems exkluderat).
 
-# GET /orders/:orderId
-Returnerar en enskild order, inkl. dess OrderItems.
+## Uppgiftsbeskrivning
 
-# POST /orders
-Skapar en ny order.
-Returnerar den skapade ordern.
-
+Bedömningskriterier
+På denna uppgiften kan ni få IG/G
 
 # Om uppgiften 
 Varje student jobbar enskilt med att skapa en backend för Bortakväll som ska fungera som en ren “drop-in replacement”. 
@@ -45,9 +41,6 @@ Alla svar följer jSend-specifikationen
 
 Publicerad (plattform TBD)
 
-
-# Kravspecifikation
-Ni ska som sagt göra ert första enkla API som ska följa specifikation för Bortakväll (JS1 uppgift 2). Målet är att ni ska kunna testa ert API mot er frontend, utan att behöva ändra något annat än bas-URL till API:et.
 
 # Man ska kunna:
 
@@ -127,3 +120,24 @@ item_total (integer, min 1)
 En OrderItem tillhör en Order.
 
 En OrderItem tillhör en Product.
+
+# Endpoints
+# GET /products
+Returnerar alla produkter 
+
+# GET /products/:productId
+Returnerar en enskild produkt.
+
+# POST /products
+Skapar en ny produkt.
+Returnerar den skapade produkten.
+
+# GET /orders
+Returnerar alla ordrar (OrderItems exkluderat).
+
+# GET /orders/:orderId
+Returnerar en enskild order, inkl. dess OrderItems.
+
+# POST /orders
+Skapar en ny order.
+Returnerar den skapade ordern.
